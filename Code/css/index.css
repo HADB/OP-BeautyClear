@@ -1,2 +1,217 @@
-body {
+.ani-fadeOut {
+    -webkit-animation: fadeOut .7s ease both;
+    animation: fadeOut .7s ease both;
+}
+
+.ani-fadeIn {
+    -webkit-animation: fadeIn .7s ease both;
+    animation: fadeIn .7s ease both;
+}
+
+@-webkit-keyframes fadeOut {
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeOut {
+    100% {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+}
+
+.page {
+    background-color: #ed6f3a;
+}
+
+.page-1 .background {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -50%;
+    margin-top: -90%;
+}
+
+.page-1 .slogan {
+    width: 60%;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -45%;
+    margin-top: -77%;
+}
+
+.page-1 .logo {
+    background-color: #FFF;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    bottom: 0%;
+    margin-left: -50%;
+}
+
+.page-1 .button {
+    width: 40%;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: 8%;
+    margin-top: 52%;
+}
+
+.page-2 .woman {
+    width: 80%;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -40%;
+    margin-top: -50%;
+}
+
+.page-2 .slogan, .page-3 .slogan {
+    width: 54%;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -27%;
+    margin-top: -82%;
+}
+
+.page-2 .text {
+    width: 18%;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -38%;
+    margin-top: -45%;
+    display: none;
+}
+
+.page-2 .blank {
+    opacity: 0;
+    width: 80%;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -40%;
+    margin-top: -50%;
+}
+
+.page-2 .product {
+    width: 18%;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: 35%;
+    box-sizing: border-box;
+    border: 2px solid white;
+    border-radius: 15%;
+}
+
+    .page-2 .product.selected {
+        border: 2px solid #229B31;
+    }
+
+
+    .page-2 .product.product-1 {
+        margin-left: -39%;
+    }
+
+    .page-2 .product.product-2 {
+        margin-left: -19%;
+    }
+
+    .page-2 .product.product-3 {
+        margin-left: 1%;
+    }
+
+    .page-2 .product.product-4 {
+        margin-left: 21%;
+    }
+
+.page-2 .product-text {
+    width: 20%;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: 55%;
+}
+
+    .page-2 .product-text.product-1 {
+        margin-left: -40%;
+    }
+
+    .page-2 .product-text.product-2 {
+        margin-left: -20%;
+    }
+
+    .page-2 .product-text.product-3 {
+        margin-left: 0%;
+    }
+
+    .page-2 .product-text.product-4 {
+        margin-left: 20%;
+    }
+
+.page-3 .success-woman {
+    width: 90%;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -45%;
+    margin-top: -35%;
+}
+
+.page-3 .star-1 {
+    width: 6%;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -18%;
+    margin-top: -24%;
+}
+
+.page-3 .star-2 {
+    width: 4%;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: 10%;
+    margin-top: -19%;
+}
+
+.page-3 .star-3 {
+    width: 6%;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: 14%;
+    margin-top: -21%;
 }

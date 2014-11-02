@@ -5,7 +5,7 @@
     <meta content="text/html; charset=utf-8">
     <meta charset="utf-8">
     <title>丝芙兰除皱游戏</title>
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
     <meta name="format-detection" content="email=no">
     <style>
@@ -63,14 +63,65 @@
             display: none;
         }
     </style>
-
 </head>
-<body>
+<body onload="SEG.loadComplete()">
+    <img src="img/page_2/woman_4.jpg" style="width:0;height:0;position:absolute;" />
+    <div class="page page-0 page-current">
+        <div class="wrap">
+            <div class="loading">
+                <img class="loading-img nec-animation-loading" src="img/page_0/loading.png" />
+                <div>Loading</div>
+            </div>
+        </div>
+    </div>
+    <div class="page page-1 hide">
+        <div class="wrap">
+            <img class="background" src="img/page_1/background.jpg" />
+            <img class="slogan nec-ani-moveUpDownSpring nec-ani-duration1000 nec-ani-delay500" src="img/common/slogan.png" />
+            <img class="logo nec-ani-moveFromLeft nec-ani-duration500" src="img/page_1/logo.png" />
+            <img class="button nec-ani-fadeOut nec-ani-duration800 nec-ani-iteration-infinite" src="img/page_1/button.png" />
+        </div>
+    </div>
+    <div class="page page-2 hide">
+        <div class="wrap">
+            <img class="woman woman-4" src="img/page_2/woman_4.jpg" />
+            <img class="woman woman-3" src="img/page_2/woman_3.jpg" />
+            <img class="woman woman-2" src="img/page_2/woman_2.jpg" />
+            <img class="woman woman-1" src="img/page_2/woman_1.jpg" />
+            <img class="slogan" src="img/common/slogan.png" />
+            <img class="text text-3 nec-ani-moveFromLeftFade" src="img/page_2/text_3.png" />
+            <img class="text text-2 nec-ani-moveFromLeftFade" src="img/page_2/text_2.png" />
+            <img class="text text-1 nec-ani-moveFromLeftFade" src="img/page_2/text_1.png" />
+            <img class="product product-1" src="img/page_2/product_1.png" />
+            <img class="product-text product-1" src="img/page_2/product_1_text.png" />
+            <img class="product product-2" src="img/page_2/product_2.png" />
+            <img class="product-text product-2" src="img/page_2/product_2_text.png" />
+            <img class="product product-3" src="img/page_2/product_3.png" />
+            <img class="product-text product-3" src="img/page_2/product_3_text.png" />
+            <img class="product product-4" src="img/page_2/product_4.png" />
+            <img class="product-text product-4" src="img/page_2/product_4_text.png" />
+        </div>
+    </div>
+    <div class="page page-3 hide">
+        <div class="wrap">
+            <img class="slogan" src="img/common/slogan.png" />
+            <img class="success-woman" src="img/page_3/success_woman.jpg" />
+            <img class="star-1 nec-ani-scaleUpCenter nec-ani-iteration-infinite" src="img/page_3/star.png" />
+            <img class="star-2 nec-ani-scaleUpCenter nec-ani-iteration-infinite" src="img/page_3/star.png" />
+            <img class="star-3 nec-ani-scaleUpCenter nec-ani-iteration-infinite" src="img/page_3/star.png" />
+        </div>
+    </div>
+    <div class="page page-4 hide">
+        <div class="wrap">
 
-    <link rel="stylesheet" type="text/css" href="css/animations.css" />
+        </div>
+    </div>
+
+    <link rel="stylesheet" type="text/css" href="css/animation.css" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <script src="js/zepto.min.js"></script>
     <script src="js/touch.js"></script>
+    <script src="js/haoest.js"></script>
     <script src="js/index.js"></script>
 </body>
 </html>
