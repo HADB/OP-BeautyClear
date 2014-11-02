@@ -9,11 +9,15 @@ var SEG = {
 
     isAnimating: false,
 
+    gameOver: false,
+
     selectedProduct: 0,
 
     currentWoman: 0,
 
     currentWomanOpacity: 1,
+
+    usingTime: 0,
 
     pageMove: function (effect, direction, pageCount) {
         var nextPageNumber = SEG.currentPageNumber + direction * pageCount;
@@ -99,14 +103,31 @@ var SEG = {
 };
 
 $(function () {
-    document.addEventListener('touchmove', function (event) {
-        event.preventDefault();
-    }, false);
+
 
     $(".page-1 .button").singleTap(function () {
         SEG.pageMove(SEG.effects.fade, SEG.directions.up, 1);
         SEG.currentWoman = 1;
         $(".page-2 .text-1").show();
+        var interval = setInterval(function () {
+            if (SEG.gameOver) {
+                clearInterval(interval);
+            }
+            SEG.usingTime = SEG.usingTime + 0.1;
+            var progress = 100 * SEG.usingTime / 30;
+            $(".page-2 .progress-bar").css("width", progress + "%");
+            if (progress > 100) {
+                SEG.pageMove(SEG.effects.fade, SEG.directions.up, 2);
+                clearInterval(interval);
+            }
+        }, 100);
+    });
+
+    $(".page-4 .play-again").singleTap(function () {
+        SEG.currentWoman = 0;
+        SEG.usingTime = 0;
+        SEG.gameOver = false;
+        SEG.pageMove(SEG.effects.fade, SEG.directions.down, 3);
     });
 
     $(".page-2 .product-1").singleTap(function () {
@@ -130,22 +151,34 @@ $(function () {
         SEG.selectedProduct = 4;
     });
 
-    $(".page-2 .woman").swipe(function () {
-        if (SEG.currentWoman == SEG.selectedProduct) {
-            SEG.currentWomanOpacity -= 0.3;
-            $(".page-2 .woman-" + SEG.currentWoman).css("opacity", SEG.currentWomanOpacity);
-            console.log("currentWoman:" + SEG.currentWoman + ", selectedProduct:" + SEG.selectedProduct);
+    document.addEventListener('touchmove', function (event) {
+        if ($(event.target).hasClass("woman")) {
+            var x = event.touches[0].clientX;
+            var y = event.touches[0].clientY;
+            $(".page-2 .magic-wand").removeClass("hide");
+            $(".page-2 .magic-wand").css("left", x);
+            $(".page-2 .magic-wand").css("top", y);
+            if (SEG.currentWoman == SEG.selectedProduct) {
+                SEG.currentWomanOpacity -= 0.01;
+                $(".page-2 .woman-" + SEG.currentWoman).css("opacity", SEG.currentWomanOpacity);
+                console.log("currentWoman:" + SEG.currentWoman + ", selectedProduct:" + SEG.selectedProduct);
+            }
+            if (SEG.currentWomanOpacity < 0.01) {
+                $(".page-2 .woman-" + SEG.currentWoman).addClass("nec-ani-rotateRemove");
+                SEG.currentWoman++;
+                SEG.currentWomanOpacity = 1;
+                $(".page-2 .text-" + (SEG.currentWoman - 1)).hide();
+                $(".page-2 .text-" + SEG.currentWoman).show();
+            }
+            if (SEG.currentWoman == 4 && !SEG.gameOver) {
+                SEG.gameOver = true;
+                SEG.pageMove(SEG.effects.fade, SEG.directions.up, 1);
+            }
         }
-        if (SEG.currentWomanOpacity < 0.3) {
-            $(".page-2 .woman-" + SEG.currentWoman).addClass("nec-ani-rotateRemove");
-            SEG.currentWoman++;
-            SEG.currentWomanOpacity = 1;
-            $(".page-2 .text-" + (SEG.currentWoman - 1)).hide();
-            $(".page-2 .text-" + SEG.currentWoman).show();
-        }
-        if (SEG.currentWoman == 4) {
-            SEG.pageMove(SEG.effects.fade, SEG.directions.up, 1);
-        }
+    }, false);
+
+    $(document).on('touchend MSPointerUp pointerup', function (event) {
+        $(".page-2 .magic-wand").addClass("hide");
     });
 
     SEG.resizeScreen();

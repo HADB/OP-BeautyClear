@@ -1,5 +1,3 @@
-
-
 /* bubble */
 .nec-ani-bubble {
     -webkit-animation: bubble 1.3s ease-out infinite both;
@@ -167,6 +165,12 @@
 .nec-ani-scaleDownCenter {
     -webkit-animation: scaleDownCenter .7s ease both;
     animation: scaleDownCenter .7s ease both;
+}
+
+/* twinkle */
+.nec-ani-twinkle {
+    -webkit-animation: twinkle 1s ease-out infinite both;
+    animation: twinkle 1s ease-out infinite both;
 }
 
 /* animation duration */
@@ -782,11 +786,33 @@
     }
 }
 
-@keyframes fadeOut {
+@keyframes fadeIn {
     0% {
         opacity: 0;
     }
 }
+
+/* twinkle */
+@-webkit-keyframes twinkle {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: .2;
+    }
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: .2;
+    }
+}
+
 
 /* scale and fade */
 
