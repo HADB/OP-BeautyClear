@@ -15,7 +15,7 @@ var SEG = {
 
     currentWoman: 0,
 
-    currentWomanOpacity: 1,
+    currentWomanOpacity: 100,
 
     usingTime: 0,
 
@@ -67,7 +67,7 @@ var SEG = {
         //屏幕比例大于0.65后，会影响显示效果，需要做缩放处理，缩放到模板比例
         var screenRatio = HAOest.browser.screen.ratio;
         if (screenRatio > 0.65) {
-            var standard = 0.63;
+            var standard = 0.62;
             if (isRatioWithWeixinBar(screenRatio)) {
                 standard = 0.5;
             }
@@ -103,8 +103,6 @@ var SEG = {
 };
 
 $(function () {
-
-
     $(".page-1 .button").singleTap(function () {
         SEG.pageMove(SEG.effects.fade, SEG.directions.up, 1);
         SEG.currentWoman = 1;
@@ -151,7 +149,7 @@ $(function () {
         SEG.selectedProduct = 4;
     });
 
-    document.addEventListener('touchmove', function (event) {
+    $(document).on('touchmove', function (event) {
         if ($(event.target).hasClass("woman")) {
             var x = event.touches[0].clientX;
             var y = event.touches[0].clientY;
@@ -159,14 +157,15 @@ $(function () {
             $(".page-2 .magic-wand").css("left", x);
             $(".page-2 .magic-wand").css("top", y);
             if (SEG.currentWoman == SEG.selectedProduct) {
-                SEG.currentWomanOpacity -= 0.01;
-                $(".page-2 .woman-" + SEG.currentWoman).css("opacity", SEG.currentWomanOpacity);
-                console.log("currentWoman:" + SEG.currentWoman + ", selectedProduct:" + SEG.selectedProduct);
+                SEG.currentWomanOpacity -= 1;
             }
-            if (SEG.currentWomanOpacity < 0.01) {
+            if (SEG.currentWomanOpacity % 10 == 0) {
+                $(".page-2 .woman-" + SEG.currentWoman).css("opacity", SEG.currentWomanOpacity / 100);
+            }
+            if (SEG.currentWomanOpacity < 1) {
                 $(".page-2 .woman-" + SEG.currentWoman).addClass("nec-ani-rotateRemove");
                 SEG.currentWoman++;
-                SEG.currentWomanOpacity = 1;
+                SEG.currentWomanOpacity = 100;
                 $(".page-2 .text-" + (SEG.currentWoman - 1)).hide();
                 $(".page-2 .text-" + SEG.currentWoman).show();
             }
@@ -175,7 +174,8 @@ $(function () {
                 SEG.pageMove(SEG.effects.fade, SEG.directions.up, 1);
             }
         }
-    }, false);
+        event.preventDefault();
+    });
 
     $(document).on('touchend MSPointerUp pointerup', function (event) {
         $(".page-2 .magic-wand").addClass("hide");
