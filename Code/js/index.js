@@ -150,6 +150,11 @@ $(function () {
         SEG.currentWoman = 0;
         SEG.usingTime = 0;
         SEG.gameOver = false;
+        $(".page-2 .text-2").hide();
+        $(".page-2 .text-3").hide();
+        $(".page-2 .woman").css("opacity", 1);
+        $(".page-2 .woman").removeClass("nec-ani-rotateRemove");
+        $(".page-2 .product").removeClass("selected");
         SEG.pageMove(SEG.effects.fade, SEG.directions.down, 3);
     });
 
@@ -208,7 +213,7 @@ $(function () {
 
     SEG.resizeScreen();
     SEG.fixForOldWebkit();
-    console.log("Powered by HAOest.com");
-    console.log("by Bean haiandengbin@126.com");
-    console.log("2014-11-2");
+    //console.log("Powered by HAOest.com");
+    //console.log("by Bean haiandengbin@126.com");
+    //console.log("2014-11-2");
 });
