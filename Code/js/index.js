@@ -208,4 +208,7 @@ $(function () {
 
     SEG.resizeScreen();
     SEG.fixForOldWebkit();
+    console.log("Powered by HAOest.com");
+    console.log("by Bean haiandengbin@126.com");
+    console.log("2014-11-2");
 });
