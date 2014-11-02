@@ -1,6 +1,8 @@
 var SEG = {
     fixedForOldWebkit: [],
 
+    fixedForiPhone: [],
+
     currentPageNumber: 0,
 
     effects: { moveUp: 1, moveDown: 2, fade: 3 },
@@ -48,6 +50,7 @@ var SEG = {
 
             SEG.isAnimating = false;
             SEG.fixForOldWebkit();
+            SEG.fixForSafari();
         }, 600);
     },
     resizeScreen: function () {
@@ -94,6 +97,28 @@ var SEG = {
             });
 
             SEG.fixedForOldWebkit["page-'" + SEG.currentPageNumber + "'"] = true;
+        }
+    },
+
+    fixForSafari: function () {
+        if (HAOest.browser.versions.iPhone && !SEG.fixedForiPhone["page-'" + SEG.currentPageNumber + "'"]) {
+            $(".page-" + SEG.currentPageNumber).find("*").each(function () {
+                var suffix = "%";
+                if ($(this).css("margin-top").indexOf("px") > -1) {
+                    suffix = "px";
+                }
+                var marginTop = parseFloat($(this).css("margin-top"));
+                if (marginTop != 0) {
+                    if (suffix == "%") {
+                        $(this).css("margin-top", (marginTop - 8) + suffix);
+                    }
+                    else {
+                        $(this).css("margin-top", (marginTop - 28) + suffix);
+                    }
+                }
+            });
+
+            SEG.fixedForiPhone["page-'" + SEG.currentPageNumber + "'"] = true;
         }
     },
 
