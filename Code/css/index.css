@@ -203,6 +203,16 @@
     top: 500%;
 }
 
+.page-2 .tip {
+    width: 4%;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -48%;
+    margin-left: 40%;
+}
+
 .progress-bar-striped {
     background-image: -webkit-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
     background-image: -o-linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
@@ -302,6 +312,17 @@
     margin-left: 14%;
     margin-top: -21%;
 }
+
+.page-3 .play-again {
+    width: 26%;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -13%;
+    margin-top: 50%;
+}
+
 
 .page-4 .fail-dog {
     width: 90%;

@@ -146,6 +146,18 @@ $(function () {
         }, 100);
     });
 
+    $(".page-3 .play-again").singleTap(function () {
+        SEG.currentWoman = 0;
+        SEG.usingTime = 0;
+        SEG.gameOver = false;
+        $(".page-2 .text-2").hide();
+        $(".page-2 .text-3").hide();
+        $(".page-2 .woman").css("opacity", 1);
+        $(".page-2 .woman").removeClass("nec-ani-rotateRemove");
+        $(".page-2 .product").removeClass("selected");
+        SEG.pageMove(SEG.effects.fade, SEG.directions.down, 2);
+    });
+
     $(".page-4 .play-again").singleTap(function () {
         SEG.currentWoman = 0;
         SEG.usingTime = 0;
